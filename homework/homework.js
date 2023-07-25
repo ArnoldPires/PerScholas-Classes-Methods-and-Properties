@@ -32,3 +32,47 @@ let theHamster = new Hamster("Hamtaro");
 theHamster.wheelRun();
 theHamster.eatFood();
 console.log(theHamster.getPrice());
+
+class Person {
+  constructor(name) { //Attributes
+    this.name = name;
+    this.age = 0;
+    this.height = 0;
+    this.weight = 0;
+    this.mood = 0;
+    this.hamsters = " ";
+    this.bankAccount = 0;
+  } //Methods
+  getName() {
+    return this.name;
+  }
+  getAge() {
+    return this.age;
+  }
+  getWeight() {
+    return this.weight;
+  }
+  greet() {
+    console.log(`Hello it's super nice to meet you! My name is ${this.name}.`);
+  }
+  eat() {
+    this.weight++;
+    this.mood++;
+  }
+  exercise() {
+    this.weight--;
+  }
+  ageUp() {
+    this.age++;
+    this.height++;
+    this.weight++;
+    this.mood--;
+    this.bankAccount += 10;
+  }
+  buyHamster(hamster) {
+    this.mood += 10;
+    this.bankAccount -= hamster.getPrice();
+  }
+}
+const personOne = new Person("Arnaldo");
+personOne.greet();
