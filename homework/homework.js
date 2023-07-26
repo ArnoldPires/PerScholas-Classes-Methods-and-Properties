@@ -142,69 +142,29 @@ console.log(timmy.name + " now eats twice a day ");
 timmy.exercise()
 timmy.exercise()
 console.log(timmy.name + " now exercises twice a day");
-/*
-class Timmy { 
-  constructor(name, age, weight) {
-    this.name = name;
-    this.age = age;
-    this.weight = weight;
-    this.hamster = " ";
-    this.eatFood = 0
-  }
-  eat() {
-    this.eatFood += 1;
-  }
-  exercise() {
-    this.weight -= 5;
-  }
-  aHamsterNamedGus(hamsterName) {
-    this.hamster = (hamsterName);
-  }
-  setGusOwner() {
-    if (this.hamster && this.hamster.name === 'Gus') {
-      this.hamster.owner = timmy.name;
-    }
-  }
-  buyGus(hamsterName, price) {
-    this.hamster = {name: hamsterName, owner: this.name, price: price};
-  }
-} //Age Timmy five years
-const timmy = new Timmy("Timmy", 5, 70);
-timmy.age == 5;
-console.log("Hello my name is " + timmy.name + '.');
-console.log("I am " + timmy.age + " years old");
-//At this point Timmy's a little bummed. As a precocious child, he feels he's "seen it all" already. Have him eat five times.
-for (let i = 0; i < 5; i++) {
-  timmy.eat();
-}
-console.log("I eat " + timmy.eatFood + " times a day." );
 
-//Now Timmy's a little heavier than he wants to be. Kindergarten's coming up and he wants to look good. Have him exercise five times
-for (let i = 0; i < 5; i++) {
-  timmy.exercise()
+//Chef Make Dinners
+//Chef should be a factory of Dinner
+//Add a constructor to dinner that sets the string properties, appetizer, entree and dessert
+class Dinner {
+  constructor(appetizer, entree, dessert) {
+    this.appetizer = appetizer;
+    this.entree = entree;
+    this.dessert = dessert;
+  }
 }
-console.log("After exercing every day, I am now " + timmy.weight + " pounds.");
-//Age Timmy 9 years
-timmy.age += 9;
-console.log("9 years have passed by, I am now " + timmy.age + " years old.")
-//Create a hamster named "Gus"
-timmy.aHamsterNamedGus("Gus");
-console.log(timmy.name + " has a hamster named " + timmy.hamster + ".")
-// Set Gus's owner to "Timmy"
-timmy.setGusOwner("Timmy");
-console.log("Gus's owner is " + timmy.name);
-//Have Timmy "buy" Gus
-timmy.buyGus("Gus", 60);
-console.log(timmy.name + " bought " + timmy.hamster.name + " for " + '$' + timmy.hamster.price + '.')
-//Age Timmy 15 years
-timmy.age += 15;
-console.log("15 years have passed by, I am now " + timmy.age + " years old.")
-//Have Timmy eat twice
-timmy.eat();
-timmy.eat();
-console.log(timmy.name + " now eats twice a day ")
-//Have Timmy exercise twice
-timmy.exercise()
-timmy.exercise()
-
-*/
+//Add a method on chef that takes three arguments and returns a new Dinner based on those arguments.
+class Chef {
+  newDinner(appetizer, entree, dessert) {
+    return new Dinner(appetizer, entree, dessert);
+  }
+}
+const chef = new Chef();
+//Add a method on chef that takes three arguments and returns a new Dinner based on those arguments.
+const dinnerOne = chef.newDinner("Chicken Alfredo", "Chicken and Shrimp Carbonara", "Black Tie Mousse Cake");
+const dinnerTwo = chef.newDinner("Ravioli Carbonara", "Spaghetti & Meatballs", "Tiramisu");
+const dinnerThree = chef.newDinner("Grilled Chicken Margherita", "Herb-Grilled Salmon", "Sicilian Cheesecake with Strawberry Topping");
+//Have the Chef create 3 dinners, log the dinners
+console.log("Dinner 1:", dinnerOne);
+console.log("Dinner 2:", dinnerTwo);
+console.log("Dinner 3:", dinnerThree);
